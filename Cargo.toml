@@ -13,4 +13,3 @@ lemmeknow = { git="https://github.com/swanandx/lemmeknow/", default-features=fal
 [profile.release]
 lto = true
 panic = "abort"
-strip = true

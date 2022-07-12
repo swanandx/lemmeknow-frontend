@@ -1,6 +1,8 @@
 # lemmeknow-frontend
 
-A website made for lemmeknow using [Yew](https://yew.rs/).
+A website made for lemmeknow using [Yew](https://yew.rs/). 
+
+Check it out [here](https://swanandx.github.io/lemmeknow-frontend/)
 
 # How to build?
 
