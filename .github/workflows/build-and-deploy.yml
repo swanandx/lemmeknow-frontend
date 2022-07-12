@@ -19,7 +19,7 @@ jobs:
           toolchain: stable
 
       - name: Downlaod Trunk
-        run: wget -qO- https://github.com/thedodd/trunk/releases/download/${VERSION}/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
+        run: wget -qO- https://github.com/thedodd/trunk/releases/download/v0.16.0/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
 
       - name: Build
         run: ./trunk build --release 
