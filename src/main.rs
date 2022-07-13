@@ -32,7 +32,7 @@ fn identify_text_as(props: &ToIdentify) -> Html {
                 (None, Some(url)) => html!{<a href={format!("{url}{}", &f.text)}>{"URL"}</a>},
                 (None, None) => html!{<span>{"None"}</span>},
             };
-            let tags = f.data.Tags.join(" ");
+            let tags = f.data.Tags.join(", ");
             html! {
             <tr>
                 <td>{f.data.Name.clone()}</td>
@@ -46,6 +46,9 @@ fn identify_text_as(props: &ToIdentify) -> Html {
 
     html! {
         <div class="output">
+            <a class="download_button" download="res.json" href={format!("data:text/json;charset=utf-8,{}", Identify::to_json(&r))}>
+            {"Download as JSON"}
+        </a>
         <div class="tbl-header">
 
     <table cellpadding="0" cellspacing="0" border="0">
