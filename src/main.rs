@@ -18,7 +18,7 @@ fn identify_text_as(props: &ToIdentify) -> Html {
     if r.len() == 0 {
         return html! {
             <div class="err">
-            {"No Possible Indetifications found :("}
+            {"No Possible Identifications found :("}
             </div>
         };
     };
