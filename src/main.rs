@@ -13,9 +13,9 @@ fn identify_text_as(props: &ToIdentify) -> Html {
         return html! {};
     }
     let id = Identify::default();
-    let r = id.identify(&vec![props.text.clone()]);
+    let r = id.identify(&[props.text.clone()]);
 
-    if r.len() == 0 {
+    if r.is_empty() {
         return html! {
             <div class="err">
             {"No Possible Identifications found :("}
@@ -44,9 +44,17 @@ fn identify_text_as(props: &ToIdentify) -> Html {
         })
         .collect::<Html>();
 
+
+    let jar = js_sys::Array::from(&Identify::to_json(&r).into());
+
+    let js_value = wasm_bindgen::JsValue::from(jar);
+
+    let blob = web_sys::Blob::new_with_u8_array_sequence_and_options(&js_value, web_sys::BlobPropertyBag::new().type_("text/json"),).unwrap();
+    let download_url = web_sys::Url::create_object_url_with_blob(&blob).unwrap();
+
     html! {
         <div class="output">
-            <a class="download_button" download="res.json" href={format!("data:text/json;charset=utf-8,{}", Identify::to_json(&r))}>
+            <a class="download_button" download="results.json" href={download_url}>
             {"Download as JSON"}
         </a>
         <div class="tbl-header">
