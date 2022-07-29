@@ -1,4 +1,4 @@
-use lemmeknow::Identify;
+use lemmeknow::Identifier;
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
 
@@ -12,7 +12,7 @@ fn identify_text_as(props: &ToIdentify) -> Html {
     if props.text.is_empty() {
         return html! {};
     }
-    let id = Identify::default();
+    let id = Identifier::default();
     let r = id.identify(&[props.text.clone()]);
 
     if r.is_empty() {
@@ -45,7 +45,7 @@ fn identify_text_as(props: &ToIdentify) -> Html {
         .collect::<Html>();
 
 
-    let jar = js_sys::Array::from(&Identify::to_json(&r).into());
+    let jar = js_sys::Array::from(&Identifier::to_json(&r).into());
 
     let js_value = wasm_bindgen::JsValue::from(jar);
 
@@ -109,7 +109,7 @@ fn app() -> Html {
         </div>
         <h4 class="subtitle">{"⚡🦀 fastest way to identify anything 🔍⚡"}</h4>
         <form class="main__form" {onsubmit}>
-        <input class="form__input_text" type="text" ref={input_ref} placeholder="Enter text to identify" />
+        <input class="form__input_text" type="text" ref={input_ref} placeholder="Enter text to identify e.g. UC11L3JDgDQMyH8iolKkVZ4w" />
         <button class="form__button">{"Identify"}</button>
         </form>
         <Identifications text={(*text_state).clone()} />
