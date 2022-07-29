@@ -26,30 +26,33 @@ fn identify_text_as(props: &ToIdentify) -> Html {
     let tdara = r
         .iter()
         .map(|f| {
-            let description = match (&f.data.Description, &f.data.URL) {
+            let description = match (&f.data.description, &f.data.url) {
                 (Some(des), Some(url)) => html! {<span>{des}<br /><a href={format!("{url}{}", &f.text)}>{"URL"}</a></span>},
                 (Some(des), None) => html!{des},
                 (None, Some(url)) => html!{<a href={format!("{url}{}", &f.text)}>{"URL"}</a>},
                 (None, None) => html!{<span>{"None"}</span>},
             };
-            let tags = f.data.Tags.join(", ");
+            let tags = f.data.tags.join(", ");
             html! {
             <tr>
-                <td>{f.data.Name.clone()}</td>
+                <td>{f.data.name.clone()}</td>
                 <td>{description}</td>
                 <td>{tags}</td>
-                <td>{f.data.Rarity}</td>
+                <td>{f.data.rarity}</td>
             </tr>
             }
         })
         .collect::<Html>();
 
-
     let jar = js_sys::Array::from(&Identifier::to_json(&r).into());
 
     let js_value = wasm_bindgen::JsValue::from(jar);
 
-    let blob = web_sys::Blob::new_with_u8_array_sequence_and_options(&js_value, web_sys::BlobPropertyBag::new().type_("text/json"),).unwrap();
+    let blob = web_sys::Blob::new_with_u8_array_sequence_and_options(
+        &js_value,
+        web_sys::BlobPropertyBag::new().type_("text/json"),
+    )
+    .unwrap();
     let download_url = web_sys::Url::create_object_url_with_blob(&blob).unwrap();
 
     html! {
