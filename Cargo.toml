@@ -10,7 +10,7 @@ yew = "0.19"
 web-sys = {version="0.3", features=["HtmlInputElement"]}
 wasm-bindgen = "0.2.81"
 js-sys = "0.3.58"
-lemmeknow = { git="https://github.com/swanandx/lemmeknow/", default-features=false }
+lemmeknow = { version="0.6", default-features=false }
 
 [profile.release]
 lto = true
