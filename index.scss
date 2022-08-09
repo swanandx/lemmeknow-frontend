@@ -43,6 +43,25 @@ a {
   color: inherit;
 }
 
+.coffee {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  padding: 1rem;
+  border: 1px solid white;
+  box-shadow: 3px 5px white;
+  transition: all 0.3s;
+}
+
+.coffee:hover {
+  background-color: white;
+  color: #121212;
+}
+
 .main__form {
   display: flex;
   margin: 0.2rem;
@@ -113,12 +132,14 @@ table {
 thead {
   background-color: rgba(255, 255, 255, 0.3);
 }
+
 .tbl-content {
   max-height: 300px;
   overflow-x: auto;
   margin-top: 0px;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
+
 th {
   padding: 20px 15px;
   text-align: left;
@@ -127,6 +148,7 @@ th {
   color: #fff;
   text-transform: uppercase;
 }
+
 td {
   padding: 15px;
   text-align: left;

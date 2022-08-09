@@ -117,7 +117,12 @@ fn app() -> Html {
         </form>
         <Identifications text={(*text_state).clone()} />
         </div>
+        <div class="coffee">
+        <h4>{"Support lemmeknow <3"}</h4>
+        <a href="https://www.buymeacoffee.com/swanandx" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png" alt="Buy Me A Coffee" style="width: 175px !important;" /></a>
+        </div>
         <footer><span>{"Made with "}<i style="color:#ff0000" class="bx bxs-heart bx-tada"></i>{" by "}<a href="https://swanandx.github.io">{"swanandx"}</a></span></footer>
+        
         </>
     }
 }
