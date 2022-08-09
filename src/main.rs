@@ -105,7 +105,10 @@ fn app() -> Html {
     html! {
         <>
         <div class="main">
+        <div class="intro">
         <h1 class="title">{"lemmeknow"}</h1>
+        <iframe src="https://github.com/sponsors/swanandx/button" title="Sponsor swanandx" height="35" width="116" style="border: 0;"></iframe>
+        </div>
         <div class="icons">
         <a href="https://github.com/swanandx/lemmeknow"><i class="bx bxl-github" style="color:#ffffff"  ></i></a>
         <a href="https://twitter.com/_swanandx"><i class="bx bxl-twitter" style="color:#ffffff"  ></i></a>
